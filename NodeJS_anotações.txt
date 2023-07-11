@@ -1,0 +1,217 @@
+
+
+
+
+
+			     =__NODE JS__=
+
+-----------------------------------------------------------------------
+-NÃO é uma linguagem de programação, é uma ferramenta que usamos para
+podermos executar e criar aplicações rápidas e escaláveis;
+-O problema: cada conexão de um cliente aloca um espaço na memória;
+-Com Node: cada conexão é um evento executado na engine no Node;
+-Ou seja, o Node suporta muito mais conexões doq o PHP e Java em uma 
+maquina igual, por exemplo;
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+		            =COMANDO NODE=
+ 
+-Podemos executar instruções de JavaScript rodando o comando node;
+-Podemos fazer operações matemáticas, utilizar funções do JavaScript e 
+muito mais;
+
+------------------------------------------------------------------------
+			=INICIANDO UM PROJETO=
+
+-O certo é sempre ter um arquivo desse ao iniciar um novo projeto;
+-Podemos criar a partir do template, utilizando o comando:
+ npm init;
+-Aí teremos um projeto com o 'package.json';
+-Esse arquivo serve para configurações e salva nossas dependências;
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+			       =O NPM=
+
+-O NPM vem de 'node package manager', então é um gerenciador de 
+pacotes do Node;
+-Ferramenta utilizada para instalar módulos de JavaScript;
+-Que podem fazer desde operações matemáticas até comunicação HTTP;
+-Instalamos um pacote pelo comando: npm install pacote;
+ 
+
+	[[TERMINAL]]
+
+...> npm install [...]
+
+
+-----------------------------------------------------------------------
+
+
+		        =Módulo de file System=
+
+-Um dos módulos mais utilizados;
+-Ele serve para trabalhar com arquivos e diretórios;
+-Já é incluso no node, ou seja, não precisamos instalar;
+
+ex:
+
+let {readFile} = require('fs');
+
+readFile("arquivo.txt", "utf8", (error, text) => {
+	if(error){
+		throw error;
+}else{
+	console.log(text);
+}
+});
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+
+		       =File System: escrevendo=
+
+-Além de ler o arquivo, podemos alterar o mesmo;
+-Chamamos isso de escrever no arquivo;
+
+ex:
+writeFile("arquivo.txt", "texto por write file", (error)=> {
+
+
+    if(error){
+        throw error;
+    }else{
+        console.log("Escreveu com sucesso!")
+    }
+})
+
+---------------------------------------------------------------------
+
+			  =Módulo HTTP=
+
+-Outro modulo muito utilizado, para fazer comunicação via HTTP;
+-O módulo já vem com o Node;
+-Pode criar um servidor que serve páginas web para nós;
+
+ex:
+const {createServer}= require('http');
+
+let server = createServer((require, response) =>{
+
+    response.writeHead(200, {"Content-TYpe": "text/html"});
+    response.write(`
+    <h1>Hello World!</h1>
+    <p>Primeira Página com Node.Js</p>
+    `);
+    response.end();
+
+});
+
+server.listen(8000);
+
+console.log("Ouvindo a porta 8000");
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+
+		            =O que é API?=
+
+-Application Programming Interface;
+-Uma maneira de se comunicar via HTTP a um servidor e fazer operações
+como: visualizar, deletar, criar, e atualizar dados;
+-Grandes aplicações dos softwares desenvolvidos em Node.js tem uma
+API;
+-E utilizam um framework(ferramenta)chamado 'Express' para isso;
+
+
+---------------------------------------------------------------------
+
+
+
+			=O que é REST e RESTful?=
+
+-Quando falamos em API estamos condicionados a falar de REST  RESTful
+também;
+
+> REST= 
+
+'Representational State Transfer', princípios e regras que 
+permitem criar uma aplicação com interfaces bem definidas;
+
+
+> RESTful= 
+
+Capacidade de aplicar os princípios do REST;
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><
+ 
+
+
+			 =REST e os Verbos HTTP=
+
+-Sempre que criamos uma API devemos utilizar os verbos HTTP corretos
+para cada URL da nossa aplicação;
+
+>Verbo GET: para solicitar dados;
+>Verbo POST: para inserir dados;
+>Verbo DELETE: para deletar dados;
+>Verbo PUT: para atualizar dados;
+ 
+
+
+---------------------------------------------------------------------
+
+
+			      =EXPRESS=
+
+-Um framework web, muito utilizado para criar aplicações em Node.JS;
+-Utiliza em seu core o módulo HTTP para criar as comunicações;
+-Além de outros módulos;
+-Podemos criar uma API com o Express facilmente;
+-Uma estrutura de programação feita por pessoas que permite a gente
+moldá-la de acordo com o nosso projeto.
+
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><
+
+
+			=O que são ROTAS?=
+
+-Nos sites e nas APIs temos o que chamamos de rotas;
+-Que é basicamente a URL que queremos acessar;
+-Porém, quando tratamos de uma API chamamos as URLs de rota;
+-No Express, vamos criar as nossas rotas para serem acessadas via 
+HTTP e responderem baseadas numa lógica que inserimos;
+-A cada rota vai receber um método HTTP, que deve coincidir com o 
+proposto pelo REST;
+
+
+
+---------------------------------------------------------------------
+
+
+
+
+			      =POSTMAN=
+
+-Postman é o software mais utilizado para testar APIs;
+-Quando ainda não é uma interface gráfica, podemos testar por meio
+dele as rotas da nossa API
+-https//:www.postman.com/downloads/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
